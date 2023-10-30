@@ -1,3 +1,1 @@
-0x00. Python - Hello, World
-Python
- By: Guillaume
+this is a repository on introduction to python programming
