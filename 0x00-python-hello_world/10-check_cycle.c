@@ -1,3 +1,4 @@
+#include "lists.h"
 /**
  * check_cycle - checking if circle is contained in a linked list.
  * @list: The start of the list
