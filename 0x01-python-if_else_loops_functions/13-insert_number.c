@@ -1,6 +1,6 @@
 #include "lists.h"
 #include <stdio.h>
-#include <stdlib.h>
+#include "lists.h"
 
 /**
  * insert_node - A function in alinked list.
@@ -12,25 +12,25 @@
  */
 listint_t *insert_node(listint_t **head, int number)
 {
-        listint_t *node = *start, *curr;
+        listint_t *node = *head, *new;
 
-        curr = malloc(sizeof(listint_t));
-        if (curr == NULL)
+        new = malloc(sizeof(listint_t));
+        if (new == NULL)
                 return (NULL);
-        curr->n = number;
+        new->n = number;
 
         if (node == NULL || node->n >= number)
         {
-                curr->next = node;
-                *start = curr;
-                return (curr);
+                new->next = node;
+                *head = new;
+                return (new);
         }
 
         while (node && node->next && node->next->n < number)
                 node = node->next;
 
-        curr->next = node->next;
-        node->next = curr;
+        new->next = node->next;
+        node->next = new;
 
-        return (curr);
+        return (new);
 }
