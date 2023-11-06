@@ -5,4 +5,4 @@ def no_c(my_string):
     for alp in my_string:
         if alp != 'c' and alp != 'C':
             rep += alp
-            return (rep)
+        return (rep)
