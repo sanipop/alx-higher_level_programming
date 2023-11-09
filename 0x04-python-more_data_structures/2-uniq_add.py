@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 
-def uniq_add(my_list=[]):
-        """
+def uniq_add(my_list=None):
+    """
     Add unique elements of the given list and return the sum.
 
     Parameters:
@@ -10,4 +10,4 @@ def uniq_add(my_list=[]):
     Returns:
     - int: The sum of unique elements in the list.
     """
-    return(sum(set(my_list)))
+    return sum(set(my_list)) if my_list else 0
