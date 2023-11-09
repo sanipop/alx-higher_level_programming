@@ -4,7 +4,7 @@ def roman_to_int(roman_string):
 
     if not roman_string or type(roman_string) != str:
         return 0
-    conversion_Table = {
+    c_T = {
         'I': 1,
         'V': 5,
         'X': 10,
