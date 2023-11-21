@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-#try by function for division
+# try by function for division
 
 def safe_print_division(a, b):
     rez = None

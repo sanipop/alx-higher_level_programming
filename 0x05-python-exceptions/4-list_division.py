@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 
-#list division using tryby
+# list division using tryby
 
 def list_division(my_list_1, my_list_2, list_length):
     result = []
