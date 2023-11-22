@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """Creating a class of singly linked list."""
 
+
 class Node:
     """Defining the class of Node."""
 
