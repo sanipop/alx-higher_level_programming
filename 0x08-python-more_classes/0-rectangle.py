@@ -1,4 +1,5 @@
-hebang of python 3.
+#!/usr/bin/python3
+"""The shebang of python 3.
 """
 
 
