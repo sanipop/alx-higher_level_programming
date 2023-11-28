@@ -115,7 +115,7 @@ class Rectangle:
             str (str): string to constructed for return
 
         Returns:
-            str (str): Convert the # diagram to to a string suitable for display
+            str (str): Convert the # diagram to to a string suitable for diy
 
         """
         str = ""
