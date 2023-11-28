@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 # 101-nqueens.py
-#Abdulmalik Sani <thepersian82@gmail.com>
+# Abdulmalik Sani <thepersian82@gmail.com>
 """A puzzle calculator.
 
 find all possible quwwn placement.
