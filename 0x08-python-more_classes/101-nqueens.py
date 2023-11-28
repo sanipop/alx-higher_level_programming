@@ -1,4 +1,5 @@
-s puzzle
+#!/usr/bin/python3
+"""chess puzzle
 
 defination of chess puzzle
 
