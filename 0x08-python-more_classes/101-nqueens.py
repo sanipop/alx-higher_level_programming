@@ -1,144 +1,139 @@
 #!/usr/bin/python3
-"""chess puzzle
+# 101-nqueens.py
+#Abdulmalik Sani <thepersian82@gmail.com>
+"""A puzzle calculator.
 
-defination of chess puzzle
+find all possible quwwn placement.
+
+a coll function
+
+a base 16 position.
 
 Attributes:
-    N (int): base number of queens, and length of board side in piece positions
-    candidates (list) of (list) of (list) of (int): list of all successful
-        solutions for given amount of columns checked
+    board (list): A 2d list.
+    solutions (list):possible soln.
 
+a r x c soln .
 """
-from sys import argv
-
-if len(argv) is not 2:
-    print('Usage: nqueens N')
-    exit(1)
-
-if not argv[1].isdigit():
-    print('N must be a number')
-    exit(1)
-
-N = int(argv[1])
-
-if N < 4:
-    print('N must be at least 4')
-    exit(1)
+import sys
 
 
-def board_column_gen(board=[]):
-    """a function representing the board.
+def init_board(n):
+    """initialize the board."""
+    board = []
+    [board.append([]) for i in range(n)]
+    [row.append(' ') for i in range(n) for row in board]
+    return (board)
+
+
+def board_deepcopy(board):
+    """duplicate board."""
+    if isinstance(board, list):
+        return list(map(board_deepcopy, board))
+    return (board)
+
+
+def get_solution(board):
+    """list of solution."""
+    solution = []
+    for r in range(len(board)):
+        for c in range(len(board)):
+            if board[r][c] == "Q":
+                solution.append([r, c])
+                break
+    return (solution)
+
+
+def xout(board, row, col):
+    """the out of the board.
+
+    non valid position are marked off.
 
     Args:
-        board (list) of (list) of (int): dimension of the board.
+        board (list): possible position.
+        row (int): forward loc.
+        col (int): trans position.
+    """
+    # X out the fomakerd
+    for c in range(col + 1, len(board)):
+        board[row][c] = "x"
+    # X out non retreat
+    for c in range(col - 1, -1, -1):
+        board[row][c] = "x"
+    # X out invalid
+    for r in range(row + 1, len(board)):
+        board[r][col] = "x"
+    # X out all the top
+    for r in range(row - 1, -1, -1):
+        board[r][col] = "x"
+    # X out all the diag move
+    c = col + 1
+    for r in range(row + 1, len(board)):
+        if c >= len(board):
+            break
+        board[r][c] = "x"
+        c += 1
+    # X out all hypotanus csanclled
+    c = col - 1
+    for r in range(row - 1, -1, -1):
+        if c < 0:
+            break
+        board[r][c]
+        c -= 1
+    # X out all spots hyp right conor
+    c = col + 1
+    for r in range(row - 1, -1, -1):
+        if c >= len(board):
+            break
+        board[r][c] = "x"
+        c += 1
+    # X out all spots buttom conor
+    c = col - 1
+    for r in range(row + 1, len(board)):
+        if c < 0:
+            break
+        board[r][c] = "x"
+        c -= 1
 
+
+def recursive_solve(board, row, queens, solutions):
+    """a recursive soln.
+
+    Args:
+        board (list): active cells.
+        row (int): active row.
+        queens (int): 2d rep of queens.
+        solutions (list): possible valid.
     Returns:
-        board of a given size
-
+        correct placement
     """
-    if len(board):
-        for row in board:
-            row.append(0)
-    else:
-        for row in range(N):
-            board.append([0])
-    return board
+    if queens == len(board):
+        solutions.append(get_solution(board))
+        return (solutions)
+
+    for c in range(len(board)):
+        if board[row][c] == " ":
+            tmp_board = board_deepcopy(board)
+            tmp_board[row][c] = "Q"
+            xout(tmp_board, row, c)
+            solutions = recursive_solve(tmp_board, row + 1,
+                                        queens + 1, solutions)
+
+    return (solutions)
 
 
-def add_queen(board, row, col):
-    """Add a a player option.
+if __name__ == "__main__":
+    if len(sys.argv) != 2:
+        print("Usage: nqueens N")
+        sys.exit(1)
+    if sys.argv[1].isdigit() is False:
+        print("N must be a number")
+        sys.exit(1)
+    if int(sys.argv[1]) < 4:
+        print("N must be at least 4")
+        sys.exit(1)
 
-    Args:
-        board (list) of (list) of (int): list matrix of board.
-        row (int): dimensioin a
-        col (int): dimension b
-
-    """
-    board[row][col] = 1
-
-
-def new_queen_safe(board, row, col):
-    """the placement of queen on the board.
-
-    Args:
-        board (list) of (list) of (int): the index position to place.
-        row (int): row
-        col (int):column
-
-    Returns:
-        True or false if possible
-
-    """
-    x = row
-    y = col
-
-    for i in range(1, N):
-        if (y - i) >= 0:
-            # verify placing
-            if (x - i) >= 0:
-                if board[x - i][y - i]:
-                    return False
-            # verify placing
-            if board[x][y - i]:
-                return False
-            # verify down
-            if (x + i) < N:
-                if board[x + i][y - i]:
-                    return False
-    return True
-
-
-def coordinate_format(candidates):
-    """chanhe to row and column.
-
-    Args:
-    candidates (list) of (list) of (list) of (int): convert 2
-
-    Attributes:
-        holberton (list) of (list) of (int): the vector space
-
-    Returns:
-        the corresponding pos
-
-    """
-    holberton = []
-    for x, attempt in enumerate(candidates):
-        holberton.append([])
-        for i, row in enumerate(attempt):
-            holberton[x].append([])
-            for j, col in enumerate(row):
-                if col:
-                    holberton[x][i].append(i)
-                    holberton[x][i].append(j)
-    return holberton
-
-# create a caniddate list
-candidates = []
-candidates.append(board_column_gen())
-
-# transverse across cell
-for col in range(N):
-    # the row transverse
-    new_candidates = []
-    # the individusl cell
-    for matrix in candidates:
-        # the row to te right
-        for row in range(N):
-            # check if occupied
-            if new_queen_safe(matrix, row, col):
-                # check validity
-                temp = [line[:] for line in matrix]
-                # do successfull
-                add_queen(temp, row, col)
-                # and otherwise,
-                if col < N - 1:
-                    # make new initialize
-                    board_column_gen(temp)
-                # palce where valid
-                new_candidates.append(temp)
-    # move to next
-    candidates = new_candidates
-
-# return to defult mode
-for item in coordinate_format(candidates):
-    print(item)
+    board = init_board(int(sys.argv[1]))
+    solutions = recursive_solve(board, 0, 0, [])
+    for sol in solutions:
+        print(sol)
