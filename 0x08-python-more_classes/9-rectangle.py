@@ -66,7 +66,7 @@ class Rectangle:
         """__height getter.
 
         Returns:
-            __height (int): receive the value of height 
+            __height (int): receive the value of height
 
         """
         return self.__height
@@ -74,7 +74,7 @@ class Rectangle:
     @height.setter
     def height(self, value):
         """Args:
-            value (int): assign value to height 
+            value (int): assign value to height
 
         Attributes:
             __height (int): value unchanged
@@ -95,7 +95,7 @@ class Rectangle:
 
         Attributes:
             __width (int): widht is same
-            __height (int): value of the height 
+            __height (int): value of the height
 
         Returns:
             Area of rectangle: product of adj sides
