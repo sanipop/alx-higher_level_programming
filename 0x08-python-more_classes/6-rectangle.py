@@ -98,7 +98,7 @@ class Rectangle:
             Area of rectangle: __width * __height
 
         """
-        return product of adj side
+        return self.__width * self.__height
 
     def perimeter(self):
         """Returns the parametrer of the rectangle
