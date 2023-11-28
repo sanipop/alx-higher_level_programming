@@ -7,7 +7,7 @@ class Rectangle:
     """This is the defination of the class.
 
     Args:
-        width (int): the span of the rectangle 
+        width (int): the span of the rectangle
         height (int): the height of the rectangle
 
     """
