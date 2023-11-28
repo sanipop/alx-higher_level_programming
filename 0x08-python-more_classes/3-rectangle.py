@@ -60,7 +60,7 @@ class Rectangle:
     @height.setter
     def height(self, value):
         """Args:
-            value (int): value assigned to the height 
+            value (int): value assigned to the height
 
         Attributes:
             __height (int): function that assigned  value ot height
@@ -110,7 +110,7 @@ class Rectangle:
         """A function that ses the # to print a rectangle.
 
         Attributes:
-            __width (int): the string is returned to the draw 
+            __width (int): the string is returned to the draw
             __height (int): the string value of the line number
             str (str): the converter for the #
 
