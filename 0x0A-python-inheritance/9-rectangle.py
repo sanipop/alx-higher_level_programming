@@ -1,28 +1,30 @@
+i8-rectangle.py
 #!/usr/bin/python3
+"""A Base GEometry calss that inherits from Rectangle."""
 BaseGeometry = __import__('7-base_geometry').BaseGeometry
-"""
-===================================
-module with class BaseGeometry
-===================================
-"""
 
 
 class Rectangle(BaseGeometry):
-    """Rectangle class that inherits from BaseGeometry"""
+    """The class Rectangle."""
 
     def __init__(self, width, height):
-        """Method for initialized the attrubutes"""
-        self.integer_validator("width", width)
+        """The initializer of Rectangle.
+
+        Args:
+            width (int): width of the class.
+            height (int): height of the class.
+        """
+        super().integer_validator("width", width)
         self.__width = width
-        self.integer_validator("height", height)
+        super().integer_validator("height", height)
         self.__height = height
 
     def area(self):
-        """Method to redefine a area method in the parent class"""
-
+        """cal the area of the class."""
         return self.__width * self.__height
 
     def __str__(self):
-        """__str__ method for return the next string"""
-
-        return "[Rectangle] {}/{}".format(self.__width, self.__height)
+        """conv print() and str()  of a Rectangle."""
+        string = "[" + str(self.__class__.__name__) + "] "
+        string += str(self.__width) + "/" + str(self.__height)
+        return string
