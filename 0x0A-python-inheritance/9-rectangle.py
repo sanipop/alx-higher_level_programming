@@ -1,4 +1,3 @@
-i8-rectangle.py
 #!/usr/bin/python3
 """A Base GEometry calss that inherits from Rectangle."""
 BaseGeometry = __import__('7-base_geometry').BaseGeometry
