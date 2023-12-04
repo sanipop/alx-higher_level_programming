@@ -1,23 +1,17 @@
 #!/usr/bin/python3
+"""The script ofr 10 task."""
 Rectangle = __import__('9-rectangle').Rectangle
-"""
-===================================
-A module to the class square
-===================================
-"""
 
 
 class Square(Rectangle):
-    """Square that inherits from rectangle"""
+    """the class of a square."""
 
     def __init__(self, size):
-        """Method for initialized the attrubutes"""
+        """the initializer method.
 
-        super().__init__(size, size)
+        Args:
+            size (int): passing a size integer.
+        """
         self.integer_validator("size", size)
+        super().__init__(size, size)
         self.__size = size
-
-    def area(self):
-        """the area class function"""
-
-        return self.__size ** 2
