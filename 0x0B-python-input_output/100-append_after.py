@@ -3,7 +3,7 @@
 
 
 def append_after(filename="", search_string="", new_string=""):
-    """Function to insert a line of text to a file, after each line containing a spe    cific string.
+    """Function to insert a line of text to a file.
 
     Args:
         filename (str): the file name to insert a txt
