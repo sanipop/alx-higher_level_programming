@@ -2,6 +2,7 @@
 """Script for reading and computing matrics
 """
 
+
 def print_stats(size, status_codes):
     """The function that print .
 
