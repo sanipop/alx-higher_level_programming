@@ -186,7 +186,3 @@ class Base:
             turt.hideturtle()
 
         turtle.exitonclick()
-<<<<<<< HEAD
-Grii
-=======
->>>>>>> 31f9face5ab0c7cffb4a0a6c96e6d059a438750f
