@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-""" script to prints the State object with 
+""" script to prints the State object with
      the name passed as argument from the database
 """
 import sys
