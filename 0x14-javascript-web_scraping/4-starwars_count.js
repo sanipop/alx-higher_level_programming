@@ -1,5 +1,5 @@
 #!/usr/bin/node
-//count for specific num id
+// count for specific num id
 const request = require('request');
 let num = 0;
 
